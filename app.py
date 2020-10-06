@@ -6,7 +6,6 @@ import os
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://drzhpnvaysjdcq:2c31e06af27a1ba954c00c1e0dc9441be0d3018fe2d404421b917c8ec55e5da6@ec2-34-192-122-0.compute-1.amazonaws.com:5432/d8jgvj9lv98s4j"
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SEACRET_KEY = os.urandom(24)
