@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title%}Todo Apply{% endblock %}
+
+{% block headline %}COLORFUL TODO{% endblock %}
+
+
+{% block content %}
+<div class="wrapper mx-auto">
+<!-- 入力フォーム -->
+<form action="/" method="POST" class="mx-auto mb-3 px-3 border border-dark rounded">
+  <h1 class="text-center my-3">CREATE FORM</h1>
+
+  <div class="row">
+    <div class="form-group col-7 col-md-3">
+      <label for="task_type">type:</label>
+      <select class="form-control fa" name="task_type">
+        <option class="fa" value="job">
+          &#xf1ad; job</option>
+        <option class="fa" value="housework">&#xf015; housework</option>
+        <option class="fa" value="study">&#xf303; study</option>
+        <option class="fa" value="relationship">&#xf500; relationship</option>
+        <option class="fa" value="fitness">&#xf44b; fitness</option>
+        <option class="fa" value="health">&#xf469; health</option>
+      </select>
+    </div>
+
+    <div class="form-group col-5 col-md-3">
+      <label for="priority fa">priority:</label>
+      <select class="form-control" name="priority">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="title">title:</label>
+      <input type="text" class="form-control" name="title" placeholder="タイトルを入力(10文字以内)" maxlength="10">
+    </div>
+
+  </div><!--/.row-->
+
+  <div class="row">
+    <div class="form-group col-md-12">
+      <label for="text">text:</label>
+      <input type="text" class="form-control" name="text" placeholder="テキストを入力(20文字以内)" maxlength="20">
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mb-4">
+    <input type="submit" value="ADD" class="btn-block btn-secondary rounded">
+  </div>
+</form>
+
+{% if tasks|length < 1 %}
+    <h4 style="text-align: center">タスクはありません</h4>
+{% else %}
+
+
+<!-- card-deck -->
+
+<div class="box-wrapper d-flex justify-content-start flex-wrap">
+
+{% for task in tasks %}
+<!-- card -->
+  <div class="box border">
+
+    <div class="card-body">
+      <div class="card-subtitle mb-2 text-nowrap">
+        {{task.date}}
+      </div>
+
+<!-- icon -->
+      <div class="card-title d-flex justify-content-center">
+        {% if task.task_type == 'job' %}
+        <h4 class="text-center fa">&#xf1ad;</h4><!--job-icon-->
+        {% endif %}
+
+        {% if task.task_type == 'housework' %}
+        <h4 class="text-center fa">&#xf015;</h4><!--housework-icon-->
+        {% endif %}
+
+        {% if task.task_type == 'study' %}
+        <h4 class="text-center fa">&#xf303;</h4><!--study-icon-->
+        {% endif %}
+
+        {% if task.task_type == 'relationship' %}
+        <h4 class="text-center fa">&#xf500;</h4><!--relationship-icon-->
+        {% endif %}
+
+        {% if task.task_type == 'fitness' %}
+        <h4 class="text-center fa">&#xf44b;</h4><!--fitness-icon-->
+        {% endif %}
+
+        {% if task.task_type == 'health' %}
+        <h4 class="text-center fa">&#xf469;</h4><!--health-icon-->
+        {% endif %}
+<!-- /.icon -->
+
+<!-- title -->
+          <h5 class="card-title text-center text-nowrap ml-2">{{task.title}}</h5>
+      </div>
+<!-- /.title -->
+
+<!-- priority -->
+      {% if task.priority == 1 %}
+      <h6 class="text-center p-1 text-white priority-1">priority:{{task.priority}}</h6><!--priority-1-->
+      {% endif %}
+
+      {% if task.priority == 2 %}
+      <h6 class="text-center p-1 text-white priority-2">priority:{{task.priority}}</h6><!--priority-2-->
+      {% endif %}
+
+      {% if task.priority == 3 %}
+      <h6 class="text-center p-1 text-white priority-3">priority:{{task.priority}}</h6><!--priority-3-->
+      {% endif %}
+
+      {% if task.priority == 4 %}
+      <h6 class="text-center p-1 text-white priority-4">priority:{{task.priority}}</h6><!--priority-4-->
+      {% endif %}
+
+      {% if task.priority == 5 %}
+      <h6 class="text-center p-1 text-white priority-5">priority:{{task.priority}}</h6><!--priority-5-->
+      {% endif %}
+<!-- /.priority -->
+
+      <div class="card-text">
+        <p>{{task.text}}</p>
+      </div>
+
+      <a href="/delete/{{task.id}}" class="btn-sm btn-primary">DELETE</a>
+      <a href="/edit/{{task.id}}" class="btn-sm btn-danger">EDIT</a>
+    </div><!--/.card-body-->
+</div><!--/.box-->
+{% endfor %}
+{% endif %}
+
+</div><!--/.container-->
+</div><!--/.wrapper-->
+
+<!-- space-area -->
+<div class="space-area"></div>
+
+{% endblock %}

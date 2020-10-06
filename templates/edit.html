@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title%}Todo Apply{% endblock %}
+
+{% block headline %}COLORFUL TODO{% endblock %}
+
+
+{% block content %}
+<!-- 編集フォーム -->
+<div class="wrapper mx-auto">
+  <form action="/update/{{task.id}}" method="POST" class=" mb-3 px-3 border border-success rounded">
+    <h1 class="text-center my-3">EDIT FORM</h1>
+  
+    <div class="row">
+      <div class="form-group col-7 col-md-3">
+        {% if task.task_type == 'job' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job" selected>&#xf1ad; job</option>
+          <option class="fa" value="housework">&#xf015; housework</option>
+          <option class="fa" value="study">&#xf303; study</option>
+          <option class="fa" value="relationship">&#xf500; relationship</option>
+          <option class="fa" value="fitness">&#xf44b; fitness</option>
+          <option class="fa" value="health">&#xf469; health</option>
+        </select>
+        {% endif %}
+
+        {% if task.task_type == 'housework' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job">&#xf1ad; job</option>
+          <option class="fa" value="housework" selected>&#xf015; housework</option>
+          <option class="fa" value="study">&#xf303; study</option>
+          <option class="fa" value="relationship">&#xf500; relationship</option>
+          <option class="fa" value="fitness">&#xf44b; fitness</option>
+          <option class="fa" value="health">&#xf469; health</option>
+        </select>
+        {% endif %}
+
+        {% if task.task_type == 'study' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job">&#xf1ad; job</option>
+          <option class="fa" value="housework">&#xf015; housework</option>
+          <option class="fa" value="study" selected>&#xf303; study</option>
+          <option class="fa" value="relationship">&#xf500; relationship</option>
+          <option class="fa" value="fitness">&#xf44b; fitness</option>
+          <option class="fa" value="health">&#xf469; health</option>
+        </select>
+        {% endif %}
+
+        {% if task.task_type == 'relationship' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job">&#xf1ad; job</option>
+          <option class="fa" value="housework">&#xf015; housework</option>
+          <option class="fa" value="study">&#xf303; study</option>
+          <option class="fa" value="relationship" selected>&#xf500; relationship</option>
+          <option class="fa" value="fitness">&#xf44b; fitness</option>
+          <option class="fa" value="health">&#xf469; health</option>
+        </select>
+        {% endif %}
+
+        {% if task.task_type == 'fitness' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job">&#xf1ad; job</option>
+          <option class="fa" value="housework">&#xf015; housework</option>
+          <option class="fa" value="study">&#xf303; study</option>
+          <option class="fa" value="relationship">&#xf500; relationship</option>
+          <option class="fa" value="fitness" selected>&#xf44b; fitness</option>
+          <option class="fa" value="health">&#xf469; health</option>
+        </select>
+        {% endif %}
+
+        {% if task.task_type == 'health' %}
+        <label for="task_type">type:</label>
+        <select class="form-control fa" name="task_type">
+          <option class="fa" value="job">&#xf1ad; job</option>
+          <option class="fa" value="housework">&#xf015; housework</option>
+          <option class="fa" value="study">&#xf303; study</option>
+          <option class="fa" value="relationship">&#xf500; relationship</option>
+          <option class="fa" value="fitness">&#xf44b; fitness</option>
+          <option class="fa" value="health" selected>&#xf469; health</option>
+        </select>
+        {% endif %}
+      </div>
+
+      <div class="form-group col-5 col-md-3">
+        {% if task.priority == 1 %}
+        <label for="priority fa">priority:</label>
+        <select class="form-control" name="priority">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        {% endif %}
+
+        {% if task.priority == 2 %}
+        <label for="priority fa">priority:</label>
+        <select class="form-control" name="priority">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        {% endif %}
+
+        {% if task.priority == 3 %}
+        <label for="priority fa">priority:</label>
+        <select class="form-control" name="priority">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        {% endif %}
+
+        {% if task.priority == 4 %}
+        <label for="priority fa">priority:</label>
+        <select class="form-control" name="priority">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4" selected>4</option>
+          <option value="5">5</option>
+        </select>
+        {% endif %}
+
+        {% if task.priority == 5 %}
+        <label for="priority fa">priority:</label>
+        <select class="form-control" name="priority">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </select>
+        {% endif %}
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="title">title:</label>
+        <input type="text" class="form-control" name="title" placeholder="タイトルを入力(10文字以内)" maxlength="10" value="{{task.title}}">
+      </div>
+  
+    </div><!--/.row-->
+  
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label for="text">text:</label>
+        <input type="text" class="form-control" name="text" placeholder="テキストを入力(20文字以内)" maxlength="20" value="{{task.text}}">
+      </div>
+    </div>
+  
+    <div class="d-flex justify-content-center mb-4">
+      <input type="submit" value="UPDATE" class="btn-block btn-success rounded">
+    </div>
+  </form>
+</div>
+{% endblock %}

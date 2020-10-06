@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.wrapper {
+  max-width: 960px;
+  height: fit-content;
+  padding: 5px;
+}
+
+.box {
+  width: 300px;
+  margin: 5px;
+}
+.box:nth-child(2n) {
+  margin: 5px 10px;
+}
+
+.space-area{
+  height: 100px;
+}
+
+.priority-1 {
+  background-color:  #58F898;
+}
+
+.priority-2 {
+  background-color: #00AB00;
+}
+
+.priority-3 {
+  background-color: #F3BF3F;
+}
+
+.priority-4 {
+  background-color: #DB2B00;
+}
+
+.priority-5 {
+  background-color: #E7005B;
+}
+
+
+/* responsive */
+@media screen and (max-width: 959px){
+  .box{
+    width: 100%;
+  }
+  .box:nth-child(2n) {
+    margin: 5px;
+  }
+}
